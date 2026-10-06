@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TURYBUS - Servicios</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+        }
+
+        header {
+            background: #005b96;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .tarjeta {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        h2 {
+            color: #005b96;
+        }
+
+        .volver {
+            display: inline-block;
+            background: #f28c28;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1> TURYBUS</h1>
+    <p>Servicios diarios</p>
+</header>
+
+<div class="contenedor">
+
+    <h2>Servicios programados</h2>
+
+    {% for servicio in servicios %}
+
+    <div class="tarjeta">
+
+        <strong>Servicio #{{ servicio[0] }}</strong>
+
+        <p>Ruta: {{ servicio[1] }}</p>
+
+        <p>
+             Salida: {{ servicio[2] }}
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+             Llegada: {{ servicio[3] }}
+        </p>
+
+        <p> Días: {{ servicio[4] }}</p>
+
+        <p> Autobús: {{ servicio[5] }}</p>
+
+        <p>Conductor: {{ servicio[6] }}</p>
+
+    </div>
+
+    {% endfor %}
+
+    <a href="/" class="volver">← Volver a rutas</a>
+
+</div>
+
+</body>
+</html>

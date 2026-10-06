@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TURYBUS - Boletos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+        }
+
+        header {
+            background: #005b96;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+        .btn-comprar {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .btn-comprar:hover {
+            background: #218838;
+        }
+
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        th {
+            background: #005b96;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 25px;
+            background: #f28c28;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎫 TURYBUS</h1>
+    <p>Boletos registrados</p>
+</header>
+
+<div class="contenedor">
+
+    <a href="/comprar-boleto" class="btn-comprar">+ Comprar Nuevo Boleto</a>
+
+    <h2>Lista de boletos</h2>
+
+    <table>
+
+        <tr>
+            <th>Boletos</th>
+            <th>DNI Pasajero</th>
+            <th>Servicio</th>
+            <th>Fecha</th>
+            <th>Importe</th>
+        </tr>
+
+        {% for boleto in boletos %}
+
+        <tr>
+            <td>{{ boleto[0] }}</td>
+            <td>{{ boleto[1] }}</td>
+            <td>{{ boleto[2] }}</td>
+            <td>{{ boleto[3] }}</td>
+            <td>${{ boleto[4] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <a href="/" class="volver">← Volver a rutas</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TURYBUS - Revisiones</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066a1, #003b5c);
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .menu {
+            text-align: center;
+            padding: 20px;
+            background: white;
+        }
+
+        .boton {
+            display: inline-block;
+            margin: 5px;
+            padding: 12px 18px;
+            background: #0066a1;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .revision {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #0002;
+        }
+
+        .revision h2 {
+            color: #005b96;
+        }
+
+        .dato {
+            margin: 8px 0;
+        }
+
+        .reparacion {
+            background: #f8fafc;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 5px solid #f28c28;
+            border-radius: 5px;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 20px;
+            background: #f28c28;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🔧 TURYBUS</h1>
+
+    <p>Revisiones y reparaciones de autobuses</p>
+
+</header>
+
+<div class="menu">
+
+    <a href="/" class="boton"> Inicio</a>
+
+    <a href="/autobuses" class="boton">Autobuses</a>
+
+    <a href="/conductores" class="boton"> Conductores</a>
+
+</div>
+
+<div class="contenedor">
+
+    <h2>🔧 Revisiones realizadas</h2>
+
+    {% for revision in revisiones %}
+
+    <div class="revision">
+
+        <h2>Revisión #{{ revision[0] }}</h2>
+
+        <p class="dato">
+            <strong>Matrícula:</strong>
+            {{ revision[1] }}
+        </p>
+
+        <p class="dato">
+            <strong>Fecha:</strong>
+            {{ revision[2] }}
+        </p>
+
+        <p class="dato">
+            <strong>Diagnóstico:</strong>
+            {{ revision[3] }}
+        </p>
+
+        {% if revision[4] %}
+
+        <div class="reparacion">
+
+            <h3> Reparación</h3>
+
+            <p>
+                <strong>Código:</strong>
+                {{ revision[4] }}
+            </p>
+
+            <p>
+                <strong>Tiempo empleado:</strong>
+                {{ revision[5] }} horas
+            </p>
+
+            <p>
+                <strong>Comentario:</strong>
+                {{ revision[6] }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+    <a href="/" class="volver">← Volver al inicio</a>
+
+</div>
+
+</body>
+
+</html>

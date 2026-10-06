@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TURYBUS - Conductores</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066a1, #003b5c);
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .menu {
+            text-align: center;
+            padding: 20px;
+            background: white;
+        }
+
+        .boton {
+            display: inline-block;
+            margin: 5px;
+            padding: 12px 18px;
+            background: #0066a1;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .boton:hover {
+            background: #003b5c;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .conductor {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #0002;
+        }
+
+        .conductor h2 {
+            color: #005b96;
+        }
+
+        .dato {
+            margin: 8px 0;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 20px;
+            background: #f28c28;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>👨‍✈️ TURYBUS</h1>
+
+    <p>Conductores</p>
+
+</header>
+
+<div class="menu">
+
+    <a href="/" class="boton"> Inicio</a>
+
+    <a href="/servicios" class="boton"> Servicios</a>
+
+    <a href="/pasajeros" class="boton"> Pasajeros</a>
+
+    <a href="/boletos" class="boton"> Boletos</a>
+
+    <a href="/autobuses" class="boton"> Autobuses</a>
+
+</div>
+
+<div class="contenedor">
+
+    <h2> Conductores de TURYBUS</h2>
+
+    {% for conductor in conductores %}
+
+    <div class="conductor">
+
+        <h2>{{ conductor[1] }}</h2>
+
+        <p class="dato">
+            <strong>DNI:</strong>
+            {{ conductor[0] }}
+        </p>
+
+        <p class="dato">
+            <strong>Teléfono:</strong>
+            {{ conductor[2] }}
+        </p>
+
+        <p class="dato">
+            <strong>Dirección:</strong>
+            {{ conductor[3] }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+    <a href="/" class="volver">← Volver al inicio</a>
+
+</div>
+
+</body>
+
+</html>

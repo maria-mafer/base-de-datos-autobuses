@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TURYBUS - Pasajeros</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+        }
+
+        header {
+            background: #005b96;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            box-shadow: 0 3px 10px #0002;
+        }
+
+        th {
+            background: #005b96;
+            color: white;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 25px;
+            background: #f28c28;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1> TURYBUS</h1>
+    <p>Pasajeros registrados</p>
+</header>
+
+<div class="contenedor">
+
+    <h2>Lista de pasajeros</h2>
+
+    <table>
+
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+        </tr>
+
+        {% for pasajero in pasajeros %}
+
+        <tr>
+            <td>{{ pasajero[0] }}</td>
+            <td>{{ pasajero[1] }}</td>
+            <td>{{ pasajero[2] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <a href="/" class="volver">← Volver a rutas</a>
+
+</div>
+
+</body>
+</html>
