@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TURYBUS - Autobuses</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066a1, #003b5c);
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .autobus {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #0002;
+        }
+
+        .autobus h2 {
+            color: #005b96;
+        }
+
+        .dato {
+            margin: 8px 0;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 20px;
+            background: #f28c28;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🚌 TURYBUS</h1>
+
+    <p>Autobuses disponibles</p>
+
+</header>
+
+<div class="contenedor">
+
+    <h2>Flota de autobuses</h2>
+
+    {% for autobus in autobuses %}
+
+    <div class="autobus">
+
+        <h2> {{ autobus[0] }}</h2>
+
+        <p class="dato">
+            <strong>Modelo:</strong>
+            {{ autobus[1] }}
+        </p>
+
+        <p class="dato">
+            <strong>Fabricante:</strong>
+            {{ autobus[2] }}
+        </p>
+
+        <p class="dato">
+            <strong>Número de plazas:</strong>
+            {{ autobus[3] }}
+        </p>
+
+        <p class="dato">
+            <strong>Características:</strong>
+            {{ autobus[4] }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+    <a href="/" class="volver">← Volver al inicio</a>
+
+</div>
+
+</body>
+
+</html>

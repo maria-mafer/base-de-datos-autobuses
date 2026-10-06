@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TURYBUS - Viajes Turísticos</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066a1, #003b5c);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .titulo h2 {
+            color: #005b8f;
+            font-size: 32px;
+        }
+
+        .rutas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* Convertimos la tarjeta en un enlace limpio */
+        .ruta-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .ruta {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .ruta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+        }
+
+        .icono {
+            font-size: 45px;
+        }
+
+        .ruta h3 {
+            color: #0066a1;
+            font-size: 22px;
+            margin: 15px 0 10px 0;
+        }
+
+        .ruta p {
+            color: #64748b;
+            margin: 0;
+        }
+
+        .botones {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #f28c28;
+            color: white;
+            text-decoration: none;
+            padding: 14px 25px;
+            margin: 8px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .boton:hover {
+            background: #d97412;
+        }
+
+        footer {
+            margin-top: 60px;
+            background: #003b5c;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1> TURYBUS</h1>
+        <p>Sistema de Viajes Turísticos</p>
+    </header>
+
+    <main class="contenedor">
+
+        <div class="titulo">
+            <h2>🌎 Nuestras Rutas</h2>
+            <p>Descubre nuestros destinos turísticos</p>
+        </div>
+
+        <div class="rutas">
+
+            {% for ruta in rutas %}
+
+            <!-- Enlace que redirige a los servicios de la ruta seleccionada -->
+            <a href="/servicios?id_ruta={{ ruta[0] }}" class="ruta-link">
+                <div class="ruta">
+                    <div class="icono">🗺️</div>
+                    <h3>{{ ruta[1] }}</h3>
+                    <p>ID de ruta: {{ ruta[0] }}</p>
+                </div>
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="botones">
+            <a href="/servicios" class="boton">Ver Servicios</a>
+            <a href="/pasajeros" class="boton">Ver Pasajeros</a>
+            <a href="/boletos" class="boton">Ver Boletos</a>
+            <a href="/autobuses" class="boton">Ver Autobuses</a>
+            <a href="/conductores" class="boton">Ver Conductores</a>
+            <a href="/revisiones" class="boton">Ver Revisiones</a>
+            <a href="/reportes" class="boton">Ver Reportes</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>TURYBUS © 2026</p>
+        <p>Sistema de Gestión de Viajes Turísticos</p>
+    </footer>
+
+</body>
+</html>

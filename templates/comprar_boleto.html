@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TURYBUS - Comprar Boleto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: #005b96;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 550px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            text-align: center;
+            color: #005b96;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        select, input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+            background-color: #f8fafc;
+            transition: border-color 0.2s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #005b96;
+            background-color: #fff;
+        }
+
+        .acciones {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-guardar {
+            flex: 2;
+            background: #f28c28;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .btn-guardar:hover {
+            background: #e07b1a;
+        }
+
+        .btn-cancelar {
+            flex: 1;
+            background: #94a3b8;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .btn-cancelar:hover {
+            background: #64748b;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TURYBUS</h1>
+    <p>Sistema de Viajes Turísticos</p>
+</header>
+
+<div class="contenedor">
+    <h2>🎟️ Comprar Nuevo Boleto</h2>
+    
+    <form action="/comprar-boleto" method="POST">
+        <div class="campo">
+            <label>Pasajero:</label>
+            <select name="dni_pasajero" required>
+                {% for p in pasajeros %}
+                    <option value="{{ p[0] }}">{{ p[1] }} (DNI: {{ p[0] }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Servicio / Ruta:</label>
+            <select name="id_servicio" required>
+                {% for s in servicios %}
+                    <option value="{{ s[0] }}">Servicio #{{ s[0] }} (Ruta {{ s[1] }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Fecha de Viaje:</label>
+            <input type="date" name="fecha_viaje" required>
+        </div>
+
+        <div class="campo">
+            <label>Precio / Importe ($):</label>
+            <input type="number" step="0.01" name="importe" placeholder="0.00" required>
+        </div>
+
+        <div class="acciones">
+            <button type="submit" class="btn-guardar">Guardar y Comprar</button>
+            <a href="/boletos" class="btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+<footer>
+    TURYBUS © 2026
+</footer>
+
+</body>
+</html>

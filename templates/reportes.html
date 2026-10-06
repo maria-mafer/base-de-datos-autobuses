@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TURYBUS - Reportes</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066a1, #003b5c);
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+        }
+
+        .reporte {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #0002;
+        }
+
+        .reporte h2 {
+            color: #005b96;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            background: #0066a1;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .volver {
+            display: inline-block;
+            margin-top: 10px;
+            background: #f28c28;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>📊 TURYBUS</h1>
+
+    <p>Reportes y estadísticas</p>
+
+</header>
+
+<div class="contenedor">
+
+    <div class="reporte">
+
+        <h2> Viajeros por servicio</h2>
+
+        <table>
+
+            <tr>
+                <th>Servicio</th>
+                <th>Ruta</th>
+                <th>Total de viajeros</th>
+            </tr>
+
+            {% for dato in viajeros_servicio %}
+
+            <tr>
+                <td>{{ dato[0] }}</td>
+                <td>{{ dato[1] }}</td>
+                <td>{{ dato[2] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    <div class="reporte">
+
+        <h2>Kilómetros por autobús</h2>
+
+        <table>
+
+            <tr>
+                <th>Matrícula</th>
+                <th>Modelo</th>
+                <th>Kilómetros diarios</th>
+            </tr>
+
+            {% for dato in km_autobus %}
+
+            <tr>
+                <td>{{ dato[0] }}</td>
+                <td>{{ dato[1] }}</td>
+                <td>{{ dato[2] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    <div class="reporte">
+
+        <h2> Kilómetros por conductor</h2>
+
+        <table>
+
+            <tr>
+                <th>DNI</th>
+                <th>Conductor</th>
+                <th>Kilómetros diarios</th>
+            </tr>
+
+            {% for dato in km_conductor %}
+
+            <tr>
+                <td>{{ dato[0] }}</td>
+                <td>{{ dato[1] }}</td>
+                <td>{{ dato[2] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    <div class="reporte">
+
+        <h2> Horas de viaje por pasajero</h2>
+
+        <table>
+
+            <tr>
+                <th>DNI</th>
+                <th>Pasajero</th>
+                <th>Total de horas</th>
+            </tr>
+
+            {% for dato in horas_pasajero %}
+
+            <tr>
+                <td>{{ dato[0] }}</td>
+                <td>{{ dato[1] }}</td>
+                <td>{{ dato[2] }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+
+    <a href="/" class="volver">← Volver al inicio</a>
+
+</div>
+
+</body>
+
+</html>
